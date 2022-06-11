@@ -12,9 +12,9 @@ const Buyer_register = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
-  const [contact_number, setContact] = useState("");
+  const [contact_no, setContact] = useState("");
   const [password, setPassword] = useState("");
-  const [batch_no, setBatch] = useState("");
+  const [batch, setBatch] = useState("");
   const [date, setDate] = useState(null);
 
   const onChangeUsername = (event) => {
@@ -58,14 +58,14 @@ const Buyer_register = (props) => {
       name: name,
       email: email,
       age: age,
-      batch_no: batch_no,
+      batch: batch,
       password: password,
-      contact_number: contact_number,
+      contact_no: contact_no,
       date: Date.now(),
     };
 
     axios
-      .post("http://localhost:4000/buyer/register", newbuyerUser)
+      .post("http://localhost:5000/buyer/register", newbuyerUser)
       .then((response) => {
         alert("Succesfully created\t" + response.data.name);
         console.log(response.data);
@@ -113,7 +113,7 @@ const Buyer_register = (props) => {
         <TextField
           label="Contact Number"
           variant="outlined"
-          value={contact_number}
+          value={contact_no}
           onChange={onChangeContact}
         />
       </Grid>
@@ -121,7 +121,7 @@ const Buyer_register = (props) => {
         <TextField
           label="Batch Name"
           variant="outlined"
-          value={batch_no}
+          value={batch}
           onChange={onChangeBatch}
         />
       </Grid>
